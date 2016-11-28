@@ -3,14 +3,14 @@ package model;
 import util.GameUtils;
 
 /**
- * Created by HP on 10/30/2016.
+ * Created by HP on 11/28/2016.
  */
-public class HorizontalLineTrajectory implements Trajectory {
+public class VerticalTrajectory implements Trajectory {
     private final Position end;
     private final MovingPosition current;
     private final Direction direction;
 
-    public HorizontalLineTrajectory(Position start, Position end, Direction direction) {
+    public VerticalTrajectory(Position start, Position end, Direction direction) {
         this.end = end;
         this.current = new MovingPositionImpl(start);
         this.direction = direction;
@@ -23,11 +23,10 @@ public class HorizontalLineTrajectory implements Trajectory {
 
     @Override
     public void moveToNextPosition(double speed) {
-        current.setH(current.getH() + direction.getValue() * speed);
+        current.setV(current.getV() + direction.getValue() * speed);
     }
 
     @Override
     public Position getCurrentPosition() {
         return current;
-    }
-}
+    }}

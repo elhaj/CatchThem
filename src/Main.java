@@ -11,6 +11,7 @@ import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,13 +24,15 @@ import static model.Direction.FORWARD;
 public class Main {
     private static final int ACTOR_RADIUS = 20;
 
-    private static final String HORIZONTAL_WAY_IMAGE = "images/road.jpg";
+    private static final String HORIZONTAL_WAY_IMAGE = "images/horizontal-road.jpg";
+    private static final String VERTICAL_WAY_IMAGE = "images/vertical-road.jpg";
     private static final String LEFT_TARGET_DEST = "images/left-cave.png";
     private static final String RIGHT_TARGET_DEST = "images/right-cave.png";
     private static final String LEFT_HERO_SOURCE = "images/left-bank.png";
     private static final String RIGHT_HERO_SOURCE = "images/right-bank.png";
 
     private static final Image horizontalWayImage;
+    private static final Image verticalWayImage;
     private static final Image leftTargetDestinationImage;
     private static final Image rightTargetDestinationImage;
     private static final Image leftHeroSourceImage;
@@ -37,6 +40,7 @@ public class Main {
 
     static {
         horizontalWayImage = buildImage(HORIZONTAL_WAY_IMAGE);
+        verticalWayImage = buildImage(VERTICAL_WAY_IMAGE);
         leftTargetDestinationImage = buildImage(LEFT_TARGET_DEST);
         rightTargetDestinationImage = buildImage(RIGHT_TARGET_DEST);
         leftHeroSourceImage = buildImage(LEFT_HERO_SOURCE);
@@ -90,6 +94,7 @@ public class Main {
         ArrayList<GUIComponent> result = new ArrayList<>();
         result.add(new ImageBasedGuiComponent(new PositionImpl(100, 100), 500, 30, imageObserver, horizontalWayImage));
         result.add(new ImageBasedGuiComponent(new PositionImpl(100, 300), 500, 30, imageObserver, horizontalWayImage));
+        result.add(new ImageBasedGuiComponent(new PositionImpl(300, 130), 30, 170, imageObserver, verticalWayImage));
         return result;
     }
 
@@ -102,9 +107,16 @@ public class Main {
 
     private static List<Actor> buildTargets() {
         List<Actor> targets = new ArrayList<>();
-        addActor(targets, ACTOR_RADIUS, false, new HorizontalLineTrajectory(new PositionImpl(170, 100), new PositionImpl(600, 100), FORWARD), 1);
+        List<Trajectory> trajectories = buildCompositeTrajectory();
+        addActor(targets, ACTOR_RADIUS, false, new CompositeTrajectory(trajectories), 1);
         addActor(targets, ACTOR_RADIUS, false, new HorizontalLineTrajectory(new PositionImpl(400, 300), new PositionImpl(100, 300), BACKWARD), 1);
         return targets;
+    }
+
+    private static List<Trajectory> buildCompositeTrajectory() {
+        Trajectory horizontal1 = new HorizontalLineTrajectory(new PositionImpl(170, 100), new PositionImpl(300, 100), FORWARD);
+        Trajectory vertical = new VerticalTrajectory(new PositionImpl(300, 100), new PositionImpl(300, 300), FORWARD);
+        return Arrays.asList(horizontal1, vertical);
     }
 
     private static void addActor(List<Actor> actors, int radius, boolean isAHero, Trajectory trajectory, double speed) {
