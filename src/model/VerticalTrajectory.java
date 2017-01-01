@@ -3,7 +3,7 @@ package model;
 import util.GameUtils;
 
 /**
- * Created by HP on 11/28/2016.
+ * Created by Sidi on 11/28/2016.
  */
 public class VerticalTrajectory implements Trajectory {
     private final Position end;

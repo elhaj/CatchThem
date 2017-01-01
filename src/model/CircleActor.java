@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Created by HP on 11/2/2016.
+ * Created by Sidi on 11/2/2016.
  */
 public class CircleActor implements Actor {
 

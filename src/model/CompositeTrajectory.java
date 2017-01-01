@@ -3,7 +3,7 @@ package model;
 import java.util.List;
 
 /**
- * Created by HP on 11/18/2016.
+ * Created by Sidi on 11/18/2016.
  */
 public class CompositeTrajectory implements Trajectory {
     private final List<Trajectory> trajectories;

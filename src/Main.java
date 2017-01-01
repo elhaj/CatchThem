@@ -19,7 +19,7 @@ import static model.Direction.BACKWARD;
 import static model.Direction.FORWARD;
 
 /**
- * Created by HP on 11/2/2016.
+ * Created by Sidi on 11/2/2016.
  */
 public class Main {
     private static final int ACTOR_RADIUS = 20;

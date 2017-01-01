@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.image.ImageObserver;
 
 /**
- * Created by HP on 11/6/2016.
+ * Created by Sidi on 11/6/2016.
  */
 public class ImageBasedGuiComponent implements GUIComponent {
     private final Position centerPoint;

@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * Created by HP on 11/3/2016.
+ * Created by Sidi on 11/3/2016.
  */
 public class GameServiceImpl implements GameService {
 

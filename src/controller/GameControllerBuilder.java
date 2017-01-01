@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by HP on 11/8/2016.
+ * Created by Sidi on 11/8/2016.
  */
 public class GameControllerBuilder {
     private List<Actor> heroes;

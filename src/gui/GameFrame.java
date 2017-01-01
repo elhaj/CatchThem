@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by HP on 11/2/2016.
+ * Created by Sidi on 11/2/2016.
  */
 public class GameFrame extends JFrame {
 

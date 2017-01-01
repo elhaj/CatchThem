@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Created by HP on 10/30/2016.
+ * Created by Sidi on 10/30/2016.
  */
 public interface Trajectory {
     int POS_EQUAL_DELTA = 4;

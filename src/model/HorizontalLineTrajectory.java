@@ -3,7 +3,7 @@ package model;
 import util.GameUtils;
 
 /**
- * Created by HP on 10/30/2016.
+ * Created by Sidi on 10/30/2016.
  */
 public class HorizontalLineTrajectory implements Trajectory {
     private final Position end;
